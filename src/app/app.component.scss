@@ -1,0 +1,25 @@
+
+::ng-deep {
+    .p-toast-message-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .p-toast-message-icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .p-confirm-dialog {
+        width: 550px;
+    }
+
+    .p-confirm-dialog .p-dialog-content {
+        gap: 10px;
+    }
+
+    body {
+        overflow: auto !important;
+    }
+}

@@ -1,0 +1,41 @@
+<form
+    id="accountForm"
+    autoComplete="off"
+    [formGroup]="formData"
+    (ngSubmit)="formSubmit(formData)"
+>
+    <div class="formgrid grid">
+        <div class="field col-12">
+            <label for="name">Name</label>
+            <input
+                pInputText
+                id="name"
+                type="text"
+                placeholder="Enter Name"
+                class="w-full"
+                formControlName="name"
+            />
+        </div>
+
+        <div class="field col-12">
+            <label for="date">Date</label>
+            <p-calendar [dateFormat]="'dd/mm/yy'" [appendTo]="'body'" formControlName="date" />
+        </div>
+
+
+        <div class="field col-12"><label for="description">Description</label>
+            <textarea pInputTextarea  id="description" rows="5" class="w-full" [autoResize]="true" formControlName="description"></textarea>
+        </div>
+
+        <div class="field col-12 flex justify-content-end mb-0">
+            <p-button type="submit" [disabled]="formData.invalid || isLoading">
+                <span *ngIf="!isLoading">Create</span>
+                <i
+                    *ngIf="isLoading"
+                    class="pi pi-spin pi-spinner"
+                    style="font-size: 1.5rem"
+                ></i>
+            </p-button>
+        </div>
+    </div>
+</form>

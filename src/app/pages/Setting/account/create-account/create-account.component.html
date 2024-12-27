@@ -1,0 +1,91 @@
+<form
+    id="accountForm"
+    autoComplete="off"
+    [formGroup]="formData"
+    (ngSubmit)="formSubmit(formData)"
+>
+    <div class="formgrid grid">
+        <div class="field col-12">
+            <label for="fullName">Full Name</label>
+            <input
+                pInputText
+                id="fullName"
+                type="text"
+                placeholder="Enter Full Name"
+                class="w-full"
+                formControlName="fullName"
+            />
+        </div>
+
+        <div class="field col-12">
+            <label for="email">Email</label>
+            <input
+                pInputText
+                id="email"
+                type="email"
+                placeholder="Enter Email"
+                class="w-full"
+                formControlName="email"
+            />
+        </div>
+
+        <div class="field col-12">
+            <label for="phone">Phone</label>
+            <input
+                pInputText
+                id="phone"
+                type="text"
+                placeholder="Enter Phone"
+                class="w-full"
+                formControlName="phone"
+            />
+        </div>
+
+        <div class="field col-12">
+            <label for="role">Role</label>
+            <p-dropdown
+                [options]="roles"
+                placeholder="Select a Role"
+                formControlName="role"
+                class="w-full"
+                [appendTo]="'body'"
+                [emptyMessage]="'No Role Found'"
+            ></p-dropdown>
+        </div>
+
+        <div class="field col-12">
+            <label for="password">Password</label>
+            <input
+                pInputText
+                id="password"
+                type="password"
+                placeholder="Enter Password"
+                class="w-full"
+                formControlName="password"
+            />
+        </div>
+
+        <div class="field col-12">
+            <label for="rePassword">Confirm Password</label>
+            <input
+                pInputText
+                id="rePassword"
+                type="password"
+                placeholder="Enter Confirm Password"
+                class="w-full"
+                formControlName="rePassword"
+            />
+        </div>
+
+        <div class="field col-12 flex justify-content-end mb-0">
+            <p-button type="submit" [disabled]="formData.invalid || isLoading">
+                <span *ngIf="!isLoading">Create</span>
+                <i
+                    *ngIf="isLoading"
+                    class="pi pi-spin pi-spinner"
+                    style="font-size: 1.5rem"
+                ></i>
+            </p-button>
+        </div>
+    </div>
+</form>
